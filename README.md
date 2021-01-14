@@ -1,38 +1,62 @@
 # Rubocop::Inspire
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubocop/inspire`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is the Inspire Ruby Style Guide
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
+## Usage
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rubocop-inspire'
+gem 'rubocop-inspire', require: false
+```
+
+Add this to your project `.rubocop.yml` file
+
+```ruby
+inherit_gem:
+  rubocop-inspire: rubocop.yml
 ```
 
 And then execute:
 
     $ bundle install
 
-Or install it yourself as:
+You can continue to add application-specific rules/overrides in the
+`.rubocop.yml` file in the root of your application, including annotating
+your todo list:
 
-    $ gem install rubocop-inspire
-
-## Usage
-
-TODO: Write usage instructions here
+```ruby
+inherit_from: .rubocop_todo.yml
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Testing locally
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+In your application, use the `path` attribute to point to your local copy of the gem
+
+```ruby
+    # Use the relative path from your application, to the rubocop-inspire folder
+    gem 'rubocop-inspire', path: '../rubocop-inspire', require: false
+```
+
+### Publishing the gem
+
+If you have access to publish the gem on rubygems:
+
+1. Update the `version.rb` file as appropriate
+1. `bundle` if any dependencies  have changed
+1. Commit all changes
+1. Update the `CHANGELOG.md`
+1. Publish to rubygems:
+  1. `rake build`
+  1. `cd pkg`
+  1. `gem push rubocop-inspire.<version_number>.gem`
+
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubocop-inspire.
+Bug reports and pull requests are welcome on GitHub at https://github.com/DWPHoldings/rubocop-inspire.
 
 ## License
 

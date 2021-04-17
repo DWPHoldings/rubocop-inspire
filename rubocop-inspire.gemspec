@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['technology@inspirecleanenergy.com']
 
   spec.summary       = 'Inspire Ruby Style Guide'
-  spec.homepage      = "https://github.com/DWPHoldings/rubocop-insire"
+  spec.homepage      = "https://github.com/DWPHoldings/rubocop-inspire"
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
